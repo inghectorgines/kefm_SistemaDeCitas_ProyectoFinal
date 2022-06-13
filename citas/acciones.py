@@ -18,7 +18,7 @@ class Acciones:
 
         if guardar[0] >= 1:
             print("\n***********************")
-            print(f"¡Perfecto! Has guardado la cita: {cita.nombre_paciente}, para la fecha: {cita.fecha_cita}")
+            print(f"¡Perfecto! Has guardado la cita con el paciente: {cita.nombre_paciente}, para la fecha: {cita.fecha_cita}")
         else:
             print(f"\nNo se guardo su cita dr. {doctor[1]}, inténtelo más tarde.")
 
@@ -54,9 +54,9 @@ class Acciones:
         else:
             print("No se borró la cita, inténtelo más tarde...")
     
-    def modificar(self,usuario,doctor):
+    def modificar(self,doctor):
         print("\n*********************")
-        id = input(f"\nHola dr(a). {doctor[1]}!! el mo. de la cita a modificar: ")
+        id = input(f"\nHola dr(a). {doctor[1]}!! el no. de la cita a modificar: ")
 
         print("\nIngresa los datos a modificar: \n")
 
@@ -64,10 +64,10 @@ class Acciones:
         descripcion = input("Escriba el diagnostico: ")
         fecha_cita = input("Fecha de la cita: ")
 
-        cita = modelo.Cita(usuario[0])
+        cita = modelo.Cita(doctor[0])
         modificar = cita.update(nombre_paciente,descripcion,fecha_cita,id)
 
         if modificar[0] >= 1:
-            print(f"\nLa Cita se actualizo correctamente!!!")
+            print(f"\nLa cita se actualizo correctamente!!!")
         else:
             print("No se pudo actualizar, prueba más tarde...")

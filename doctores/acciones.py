@@ -5,7 +5,7 @@ import citas.acciones
 class Acciones:
 
     def registro(self):
-        print("Registrar a un doctor...")
+        print("Registrar a un(a) doctor...")
 
         nombre = input("¿Cuál es su nombre?: ")
         apellidos = input("¿Cuales son los apellido?: ")
@@ -19,12 +19,12 @@ class Acciones:
         registro = doctor.registrar()
 
         if registro[0] >= 1:
-            print(f"\nPerfecto dr. {registro[1].Nombre} te ha registrado con el email {registro[1].Email}")
+            print(f"\nPerfecto dr(a). {registro[1].Nombre} se ha registrado con el email {registro[1].Email}.\nGuarde su email para iniciar sesión en el sistema.")
         else:
-            print("\nNo te has registrado correctamente!!!")
+            print("\nNo se has registrado correctamente!!!")
 
     def login(self):
-        print("\nIdentificate en el sistema...")
+        print("\nIniciar sesión en el sistema...")
 
         try:
             email = input("Introduce su email: ")
@@ -43,7 +43,7 @@ class Acciones:
             #print(type(e).__name__)
             print("\nLogin Incorrecto!!! Intentalo más tarde.")
 
-    def proximasAcciones(self,usuario):
+    def proximasAcciones(self,doctor):
         print("""
         Acciones disponibles para el doctor:
             1.- Crear una cita 
@@ -58,23 +58,24 @@ class Acciones:
 
         if accion == "1":
             # print("Vamos a crear nota")
-            hazEl.crear(usuario)
-            self.proximasAcciones(usuario)
+            hazEl.crear(doctor)
+            self.proximasAcciones(doctor)
 
         elif accion == "2":
             #print("Vamos a mostrar")
-            hazEl.mostrar(usuario)
-            self.proximasAcciones(usuario)
+            hazEl.mostrar(doctor)
+            self.proximasAcciones(doctor)
 
         elif accion == "3":
-            #print("Vamos a eliminar")
-            hazEl.borrar(usuario)
-            self.proximasAcciones(usuario)
+            #print("Vamos a modificar")
+            hazEl.modificar(doctor)
+            self.proximasAcciones(doctor)
 
         elif accion == "4":
             #print("Vamos a eliminar")
-            hazEl.modificar(usuario)
-            self.proximasAcciones(usuario)
+            hazEl.borrar(doctor)
+            self.proximasAcciones(doctor)
+
             
         elif accion == "5":
             exit()
