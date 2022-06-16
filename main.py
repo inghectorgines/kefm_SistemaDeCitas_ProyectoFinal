@@ -1,3 +1,6 @@
+## Descargo y procedo a revisar y calificar.
+
+
 """
 Proyecto python + MySQL:
 1.- Abrir el asistente
